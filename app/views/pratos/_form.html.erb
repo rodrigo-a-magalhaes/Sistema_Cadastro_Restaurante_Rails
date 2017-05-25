@@ -1,0 +1,40 @@
+<%= form_with(model: prato, local: true, :class => "form") do |form| %>
+  <% if prato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
+
+      <ul>
+      <% prato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div>
+  <%= form.label :Restaurante %>
+    <select name="prato[restaurante_id]" id="post_category">
+      <option value="">Restaurantes...</option>   
+      <%= Restaurante.find_each do |restaurante| %>
+      <option value="<%= restaurante.id %>"><%= restaurante.nome %></option>
+      <%end%>
+    </select>
+  </div>
+
+  <div>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome, id: :prato_nome %>
+  </div>
+
+  <div>
+    <%= form.label :preco, 'Preço(R$):' %><br>
+    <%= form.number_field :preco, id: :prato_preco %>
+  </div>
+
+
+<br>
+  <div class="actions">
+    <%= form.submit  "Salvar", :class => "btn btnGreen iconSave" %>
+  </div>
+<% end %>

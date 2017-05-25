@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Pratos</h2>
+
+<div class="contPage">
+  <div class="divForm">
+    <%= link_to 'Cadastrar novo Prato', new_prato_path , :class => "btn btnGreen iconAdd"%>
+  </div>
+
+  <div class="divOver">
+    <table class="tabResult_Prato">
+      <thead>
+        <tr>
+          <th colspan="2"></th>
+          <th>Restaurante</th>
+          <th>Prato</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @pratos.each do |prato| %>
+        <tr>
+          <td><%= link_to '', prato, method: :delete, :class => "btnA iconRemove" %></td>
+          <td><%= link_to '', edit_prato_path(prato), :class => "btnA iconEdit" %></td>
+          <td><%= prato.restaurante[:nome] %></td>
+          <td><%= prato.nome %></td>
+          <td><%= prato.preco %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

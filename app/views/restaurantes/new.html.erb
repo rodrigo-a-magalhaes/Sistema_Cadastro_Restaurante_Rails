@@ -1,0 +1,11 @@
+<h2>Cadastro de Restaurante</h2>
+<div class="contPage">
+	<fieldset class="field">
+		<legend>Dados</legend>
+		
+		<%= render 'form', restaurante: @restaurante %>
+		
+		<%= link_to 'Cancelar', restaurantes_path, :class => "btn btnRed iconCancel" %>
+
+	</fieldset>
+</div>

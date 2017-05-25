@@ -1,0 +1,25 @@
+<h2>Resultado</h2>
+<div class="contPage">
+	<div class="divOver">
+		<table class="tabResult">
+			</thead>
+				<tr>
+					<th>Restaurantes</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+			<% @restaurante.each do |restaurantes| %>
+			
+			<tr><td>Nome: <%= restaurantes.nome %></td></tr>
+			
+			<%end%>
+			
+			</tbody>
+		</table>
+	</div>
+	<br><br>
+	<%= link_to 'Voltar', restaurantes_path , :class => "btn btnGreen iconCancel" %>
+</div>
+

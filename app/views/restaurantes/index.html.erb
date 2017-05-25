@@ -1,0 +1,43 @@
+<h2>Restaurantes</h2>
+
+<p id="notice"><%= notice %></p>
+
+<!--Busca de Restaurante-->
+<div class="contPage">
+
+	<fieldset class="field">
+		<legend>Filtros</legend>
+
+		<%= form_tag("/search", method: "get", :class => "form") do %>
+		<label>Nome: </label>
+	    <%= text_field_tag :search, params[:search] %>
+
+	    <%= submit_tag "Pesquisar", :name => nil, :class => "btn btnBlue iconSearch" %>
+		<% end %>
+		<%= link_to "Cadastrar novo Restaurante", "restaurantes/new" , :class => "btn btnGreen iconAdd" %>
+	</fieldset>
+	
+	<br>
+	<!--Tabela com os Restaurante Cadastrados-->
+	<div class="divOver">
+		<table class="tabResult">
+			<thead>
+			<tr>
+				<th colspan="2"></th>
+				<th>Restaurantes</th>
+			</tr>
+			</thead>
+
+			<tbody>
+				<% @restaurantes.each do |restaurante| %>
+				<tr>
+					<td><%= link_to '', restaurante, method: :delete, :class => "btnA iconRemove" %></td>
+					<td><%= link_to '', edit_restaurante_path(restaurante), :class => "btnA iconEdit" %></td>
+					<td><%= restaurante.nome %></td>  
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+
+</div>

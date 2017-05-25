@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SystemRestaurante</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <h1 class="bodyTitle">Avaliação Prática – Ruby on Rails – Sistema de Restaurantes</h1>
+
+    <div class="main">
+
+  <!--MENU-->
+  	<ul class="menu">
+		  <li class="menuItem"><%= link_to "Home", root_path %></li>
+		  <li class="menuItem"><%= link_to "Restaurantes", restaurantes_path %></li>
+		  <li class="menuItem"><%= link_to "Pratos", pratos_path %></li>
+	 </ul>
+
+    <%= yield %>
+
+  </div><!--/main-->
+
+  </body>
+</html>
